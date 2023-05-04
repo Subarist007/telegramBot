@@ -1,6 +1,6 @@
 import requests
 import asyncio
-
+import os
 import pprint
 from translate import Translator
 from environs import Env
@@ -41,10 +41,10 @@ async def process_start_command(message: types.Message):
 	try:
 		# Подключение к базе данных
 		connection = psycopg2.connect(
-			host=host,
-			user=user,
-			password=password,
-			database=db_name
+			host=os.getenv('host'),
+			user=os.getenv('user'),
+			password=os.getenv('password'),
+			database=os.getenv('db_name')
 		)
 		connection.autocommit = True
 
@@ -112,10 +112,10 @@ if __name__ == '__main__':
 	try:
 		# Подключение к базе данных
 		connection = psycopg2.connect(
-			host=host,
-			user=user,
-			password=password,
-			database=db_name
+			host=os.getenv('host'),
+			user=os.getenv('user'),
+			password=os.getenv('password'),
+			database=os.getenv('db_name')
 		)
 		connection.autocommit = True
 
