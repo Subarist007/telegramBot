@@ -8,8 +8,9 @@ from environs import Env
 from aiogram import Bot, Dispatcher, executor, types
 
 import psycopg2 # Импортируем модуль для работы с DataBase
-from config import host, user, password, db_name # Импортируем данные из config
+from dotenv import load_dotenv, find_dotenv
 
+load_dotenv(find_dotenv())
 
 env = Env()
 env.read_env()
