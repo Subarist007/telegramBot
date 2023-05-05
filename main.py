@@ -12,10 +12,8 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
-env = Env()
-env.read_env()
 
-BOT_TOKEN = env('TOKEN')
+BOT_TOKEN = os.getenv('TOKEN')
 
 #Создаем объекты бота и диспетчера
 bot: Bot = Bot(BOT_TOKEN)
